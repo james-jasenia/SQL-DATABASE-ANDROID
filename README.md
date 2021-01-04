@@ -50,7 +50,11 @@ int nameIndex = c.getColumnIndex("name");
 int ageIndex = c.getColumnIndex("age");
 
 c.moveToFirst();
-```
 
-#### 
+while (!c.isAfterLast()) {
+  Log.i("Name", c.getString(nameIndex));
+  Log.i("Age", c.getString(ageIndex));
+  c.moveToNext();
+}
+```
 
