@@ -13,8 +13,8 @@ The SQLiteDatabase class and the package in which it is provided, contains all o
 
 #### Open or Create:
 As the name implies, this method will take a name parameter and either:
-a) Create a new database if a database with the name does not exist
-b) Open the database with the same name
+- Create a new database if a database with the name does not exist
+- Open the database with the same name
 ```
 SQLiteDatabase myDatabase = this.openOrCreateDatabase("Users", MODE_PRIVATE, null);
 ```
