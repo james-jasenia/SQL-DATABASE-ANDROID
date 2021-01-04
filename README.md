@@ -5,7 +5,7 @@
 The purpose of this app is to explore the data persistence using SQL and databases.
 
 
-## Key Classes:
+## Key Classes and Methods:
 ### SQLiteDatabase
 The SQLiteDatabase class and the package in which it is provided, contains all of the APIs you will need to create and interact with a database in Android. You use SQL to interact with the database which can be quite string heavy. The documentation recommends creating a companion class (contract class), which explicitly specific the layout of your schema. 
 
@@ -33,6 +33,24 @@ myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('James', 30)");
 myDatabase.execSQL("INSERT INTO users (name, age) VALUES ('Sarah', 28)");
 ```
 
-#### Accessing 
+### Cursor
+The cursor object is an interface which represents a table of any database. When you try to retrieve data using the .rawQuery method, the database will return a Cursor object. It is convention to name the cursor c. When the cursor is created, it will point to the 0th location. You use the .movesToFirst() method to move to the first location in the table. Some helpful methods for moving the cursors are:
+.moveToFirst()
+.moveToNext()
+.moveToPosition(Integer index)
+.moveToLast()
+.moveToPrevious()
 
+#### Accessing
+You need to get the column indices you require. 
+```
+Cursor c = myDatabase.rawQuery("SELECT * FROM users", null);
+
+int nameIndex = c.getColumnIndex("name");
+int ageIndex = c.getColumnIndex("age");
+
+c.moveToFirst();
+```
+
+#### 
 
